@@ -37,6 +37,9 @@
             height: clamp(150px, 30vw, 220px);
             margin: 0 auto 24px;
             position: relative;
+            --slider-1: 19%;
+            --slider-2: 50%;
+            --slider-3: 81%;
         }
 
         .mixer-panel {
@@ -58,9 +61,9 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .slider-1 { left: 10%; }
-        .slider-2 { left: 41%; }
-        .slider-3 { left: 72%; }
+        .slider-1 { left: var(--slider-1); }
+        .slider-2 { left: var(--slider-2); }
+        .slider-3 { left: var(--slider-3); }
 
         .mixer-slider::after {
             content: '';
@@ -91,11 +94,12 @@
             background: #0f0f0f;
             border: 2px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            transform: translateX(-50%);
         }
 
-        .knob-1 { left: 16%; bottom: 10%; }
-        .knob-2 { left: 47%; bottom: 10%; }
-        .knob-3 { left: 78%; bottom: 10%; }
+        .knob-1 { left: var(--slider-1); bottom: 10%; }
+        .knob-2 { left: var(--slider-2); bottom: 10%; }
+        .knob-3 { left: var(--slider-3); bottom: 10%; }
 
         @keyframes faderMove {
             0% {
