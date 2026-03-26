@@ -679,6 +679,39 @@ nav {
 }
 
 @media (max-width: 480px) {
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3rem);
+        line-height: 1;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.85rem, 3.5vw, 1rem);
+        letter-spacing: 1px;
+    }
+
+    .cta-button {
+        font-size: clamp(0.8rem, 3vw, 0.9rem);
+        padding: 10px 22px;
+        letter-spacing: 1px;
+    }
+
+    .about-text h2,
+    .features-title,
+    .gallery-header h2,
+    .contacts-header h2 {
+        font-size: clamp(1.6rem, 6vw, 2.2rem);
+    }
+
+    .about-text p,
+    .contacts-header p {
+        font-size: clamp(0.85rem, 3.5vw, 1rem);
+    }
+
+    .feature-card,
+    .contact-card {
+        padding: 20px;
+    }
+
     .gallery-buttons {
         flex-direction: column;
         align-items: center;
