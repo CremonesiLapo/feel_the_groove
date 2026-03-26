@@ -699,17 +699,35 @@ nav {
     .features-title,
     .gallery-header h2,
     .contacts-header h2 {
-        font-size: clamp(1.6rem, 6vw, 2.2rem);
+        font-size: clamp(1.4rem, 5.5vw, 2rem);
     }
 
     .about-text p,
     .contacts-header p {
-        font-size: clamp(0.85rem, 3.5vw, 1rem);
+        font-size: clamp(0.8rem, 3.2vw, 0.95rem);
     }
 
     .feature-card,
     .contact-card {
-        padding: 20px;
+        padding: 16px;
+    }
+
+    .feature-card h3,
+    .contact-card h3 {
+        font-size: 1rem;
+    }
+
+    .feature-card p,
+    .contact-card p {
+        font-size: 0.85rem;
+    }
+
+    .gallery-button-title {
+        font-size: 1rem;
+    }
+
+    .gallery-button-subtitle {
+        font-size: 0.8rem;
     }
 
     .gallery-buttons {
@@ -722,6 +740,33 @@ nav {
         width: 100%;
         max-width: 300px;
         aspect-ratio: 16/9;
+    }
+}
+
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .cta-button {
+        font-size: 0.8rem;
+        padding: 9px 18px;
+    }
+
+    .about-text h2,
+    .features-title,
+    .gallery-header h2,
+    .contacts-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .about-text p,
+    .contacts-header p {
+        font-size: 0.78rem;
     }
 }
 
