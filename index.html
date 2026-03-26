@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Feel The Groove</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo">
+            <img src="assets/images/feel_the_groove_no_background.png" alt="Feel The Groove" class="logo-image">
+        </div>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#" data-slide="0" class="active">Home</a></li>
+            <li><a href="#" data-slide="1">About</a></li>
+            <li><a href="#" data-slide="2">Features</a></li>
+            <li><a href="#" data-slide="3">Gallery</a></li>
+            <li><a href="#" data-slide="4">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Slide Indicators -->
+    <div class="slide-indicators">
+        <div class="indicator active" data-slide="0"></div>
+        <div class="indicator" data-slide="1"></div>
+        <div class="indicator" data-slide="2"></div>
+        <div class="indicator" data-slide="3"></div>
+        <div class="indicator" data-slide="4"></div>
+    </div>
+
+    <!-- Main Slider Container -->
+    <div class="slider-container">
+        <div class="slides-wrapper" id="slidesWrapper">
+
+            <!-- Slide 1: Hero -->
+            <section class="slide slide-hero" id="home">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+
+                <div class="hero-content">
+                    <h1 class="hero-title">FEEL THE<br>GROOVE</h1>
+                    <p class="hero-subtitle">Where Music Meets Motion</p>
+                    <button class="cta-button" onclick="goToSlide(1)">Start Experience</button>
+                </div>
+
+                <div class="scroll-hint" onclick="goToSlide(1)">
+                    <span>Scroll</span>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </section>
+
+            <!-- Slide 2: About -->
+            <section class="slide slide-about" id="about">
+                <div class="about-container">
+                    <div class="about-text">
+                        <h2>The Rhythm of Innovation</h2>
+                        <p>Feel The Groove isn't just a platform—it's a movement. We bridge the gap between auditory
+                            bliss and visual spectacle, creating immersive experiences that resonate deep within your
+                            soul.</p>
+                        <p>From underground beats to mainstream anthems, we curate moments that make you move, feel, and
+                            connect.</p>
+                    </div>
+                    <div class="about-visual">
+                        <div class="vinyl-record">
+                            <div class="vinyl-grooves"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 3: Features -->
+            <section class="slide slide-features" id="features">
+                <div class="features-container">
+                    <h2 class="features-title">Why Choose The Groove?</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <span class="feature-icon">🎵</span>
+                            <h3>Immersive Sound</h3>
+                            <p>High-fidelity audio processing that captures every nuance, from the deepest bass to the
+                                crispiest highs.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">✨</span>
+                            <h3>Visual Sync</h3>
+                            <p>Real-time visualizations that dance with your music, creating a synesthetic experience
+                                like no other.</p>
+                        </div>
+                        <div class="feature-card">
+                            <span class="feature-icon">🚀</span>
+                            <h3>Seamless Flow</h3>
+                            <p>Intuitive navigation and smooth transitions that keep you in the zone without
+                                interruption.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 4: Gallery with 4 Rectangular Image Buttons -->
+            <section class="slide slide-gallery" id="gallery">
+                <div class="gallery-container">
+                    <div class="gallery-header">
+                        <h2>Visual Frequency</h2>
+                    </div>
+                    <div class="gallery-buttons">
+                        <button class="gallery-button" onclick="location.href='pages/708090_page.html'">
+                            <img src="assets/images/708090.png" alt="Live Sessions">
+                            <div class="gallery-button-overlay">
+                                <div class="gallery-button-title"></div>
+                                <div class="gallery-button-subtitle"></div>
+                            </div>
+                        </button>
+                        <button class="gallery-button" onclick="location.href='pages/edm_page.html'">
+                            <img src="assets/images/EDM.png" alt="Studio Work">
+                            <div class="gallery-button-overlay">
+                                <div class="gallery-button-title"></div>
+                                <div class="gallery-button-subtitle"></div>
+                            </div>
+                        </button>
+                        <button class="gallery-button" onclick="location.href='pages/house_feeling_page.html'">
+                            <img src="assets/images/house_feeling.png" alt="Festival Vibes">
+                            <div class="gallery-button-overlay">
+                                <div class="gallery-button-title"></div>
+                                <div class="gallery-button-subtitle"></div>
+                            </div>
+                        </button>
+                        <button class="gallery-button" onclick="location.href='pages/pop_dance_page.html'">
+                            <img src="assets/images/pop_dance.png" alt="Artist Portraits">
+                            <div class="gallery-button-overlay">
+                                <div class="gallery-button-title"></div>
+                                <div class="gallery-button-subtitle"></div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 5: Contacts -->
+            <section class="slide slide-contacts" id="contact">
+                <div class="contacts-container">
+                    <div class="contacts-header">
+                        <h2>Let’s Connect</h2>
+                        <p>Bookings, collaborations, and press</p>
+                    </div>
+                    <div class="contacts-grid">
+                        <div class="contact-card">
+                            <h3>Email</h3>
+                            <p>hello@feelthegroove.com</p>
+                        </div>
+                        <div class="contact-card">
+                            <h3>Phone</h3>
+                            <p>+39 000 000 0000</p>
+                        </div>
+                        <div class="contact-card">
+                            <h3>Studio</h3>
+                            <p>Rome, Italy</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="script/main.js"></script>
+</body>
+
+</html>

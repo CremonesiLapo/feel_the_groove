@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #431F04;
+    color: #fff;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 2;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(252, 166, 0, 0.5);
+    color: #FCDD28;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    backdrop-filter: blur(8px);
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    background: rgba(252, 166, 0, 0.15);
+    border-color: rgba(252, 166, 0, 0.9);
+}
+
+/* Background effects */
+.bg-grid {
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(252, 166, 0, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(252, 166, 0, 0.06) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-glow {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    height: 90vh;
+    background: radial-gradient(circle, rgba(252, 166, 0, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Main Container */
+.eras-container {
+    width: 100%;
+    max-width: 1600px;
+    padding: 40px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Header */
+.eras-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.eras-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #FCA600, #FB2A09, #FCDD28);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.eras-header p {
+    color: #b39f8b;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Cards Grid */
+.decades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Card Base */
+.decade-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.decade-card:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+/* Classic */
+.decade-card.classic {
+    background: linear-gradient(180deg, #560C00 0%, #431F04 100%);
+}
+
+.decade-card.classic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(252, 166, 0, 0.4) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* Deep */
+.decade-card.deep {
+    background: linear-gradient(180deg, #560C00 0%, #431F04 100%);
+}
+
+.decade-card.deep::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(255, 123, 74, 0.35) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* Tech */
+.decade-card.tech {
+    background: linear-gradient(180deg, #560C00 0%, #431F04 100%);
+}
+
+.decade-card.tech::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(160, 255, 214, 0.35) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* Visual Area */
+.decade-visual {
+    flex: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px;
+    min-height: 250px;
+}
+
+/* Sunset Disk */
+.sunset-disk {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #FCA600 0%, #FB2A09 60%, #560C00 100%);
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.sunset-ring {
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.35);
+}
+
+/* Deep Pulse */
+.deep-pulse {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: inset 0 0 30px rgba(255, 123, 74, 0.3);
+}
+
+.deep-dot {
+    width: 22px;
+    height: 70px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #FB2A09 0%, #FCA600 100%);
+    animation: pulseBar 2.4s ease-in-out infinite;
+}
+
+.deep-dot:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.deep-dot:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+@keyframes pulseBar {
+    0%,
+    100% {
+        transform: scaleY(0.6);
+    }
+
+    50% {
+        transform: scaleY(1);
+    }
+}
+
+/* House Grid */
+.house-grid {
+    width: 180px;
+    height: 160px;
+    position: relative;
+    background: repeating-linear-gradient(90deg,
+            rgba(160, 255, 214, 0.15) 0px,
+            rgba(160, 255, 214, 0.15) 6px,
+            transparent 6px,
+            transparent 16px);
+    border-radius: 16px;
+    box-shadow: inset 0 0 30px rgba(160, 255, 214, 0.2);
+}
+
+.house-roof {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 10px;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 60px solid rgba(160, 255, 214, 0.8);
+}
+
+.house-body {
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    bottom: 18px;
+    height: 70px;
+    background: rgba(160, 255, 214, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(160, 255, 214, 0.4);
+}
+
+/* Info Area */
+.decade-info {
+    padding: 35px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.decade-year {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.classic .decade-year {
+    background: linear-gradient(45deg, #FCA600, #FCDD28);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.deep .decade-year {
+    background: linear-gradient(45deg, #FB2A09, #FCA600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tech .decade-year {
+    background: linear-gradient(45deg, #FCDD28, #FCDD28);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.decade-range {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.decade-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.decade-genre {
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+}
+
+.decade-genre:hover {
+    transform: scale(1.05);
+}
+
+.classic .decade-genre {
+    background: rgba(252, 166, 0, 0.2);
+    color: #FCDD28;
+    border: 1px solid rgba(252, 166, 0, 0.5);
+}
+
+.deep .decade-genre {
+    background: rgba(255, 123, 74, 0.2);
+    color: #FCA600;
+    border: 1px solid rgba(255, 123, 74, 0.5);
+}
+
+.tech .decade-genre {
+    background: rgba(160, 255, 214, 0.2);
+    color: #FCDD28;
+    border: 1px solid rgba(160, 255, 214, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .decades-grid {
+        gap: 30px;
+    }
+
+    .decade-visual {
+        min-height: 200px;
+        padding: 30px;
+    }
+
+    .sunset-disk {
+        width: 150px;
+        height: 150px;
+    }
+
+    .deep-pulse {
+        width: 150px;
+        height: 150px;
+    }
+
+    .house-grid {
+        width: 150px;
+        height: 135px;
+    }
+}
+
+@media (max-width: 968px) {
+    .eras-container {
+        padding: 20px;
+        overflow-y: auto;
+        justify-content: flex-start;
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+
+    .decades-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        gap: 30px;
+    }
+
+    .decade-card {
+        aspect-ratio: auto;
+        min-height: 500px;
+    }
+
+    .eras-header {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .decade-info {
+        padding: 25px;
+    }
+
+    .decade-year {
+        font-size: 2.2rem;
+    }
+
+    .decade-genre {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (hover: none) {
+    .decade-card:hover {
+        transform: none;
+    }
+}

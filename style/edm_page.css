@@ -1,0 +1,458 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #2c3f9f;
+    color: #fff;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Back Button */
+.back-button {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 2;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: rgba(44, 63, 159, 0.65);
+    border: 1px solid rgba(72, 225, 253, 0.45);
+    color: #86dff0;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    backdrop-filter: blur(8px);
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    background: rgba(72, 225, 253, 0.12);
+    border-color: rgba(72, 225, 253, 0.75);
+}
+
+/* Background effects */
+.bg-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        linear-gradient(rgba(72, 225, 253, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(72, 225, 253, 0.05) 1px, transparent 1px);
+    background-size: 70px 70px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-glow {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85vw;
+    height: 85vh;
+    background: radial-gradient(circle, rgba(185, 71, 255, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Main Container */
+.eras-container {
+    width: 100%;
+    max-width: 1600px;
+    padding: 40px;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+/* Header */
+.eras-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.eras-header h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #86dff0, #8D3EFE, #c95ae8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.eras-header p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* Cards Grid */
+.decades-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Card Base */
+.decade-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.decade-card:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+/* Big Room */
+.decade-card.bigroom {
+    background: linear-gradient(180deg, #3a6fd6 0%, #2c3f9f 100%);
+}
+
+.decade-card.bigroom::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(134, 223, 240, 0.35) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* Future Bass */
+.decade-card.futurebass {
+    background: linear-gradient(180deg, #7b37d4 0%, #5833b1 100%);
+}
+
+.decade-card.futurebass::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(201, 90, 232, 0.35) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* Trance */
+.decade-card.trance {
+    background: linear-gradient(180deg, #4f7edb 0%, #3a6fd6 100%);
+}
+
+.decade-card.trance::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(134, 223, 240, 0.4) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* Visual Area */
+.decade-visual {
+    flex: 1.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px;
+    min-height: 250px;
+}
+
+/* Pulse Orb */
+.pulse-orb {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    position: relative;
+    background: radial-gradient(circle at 30% 30%, #86dff0 0%, #3a6fd6 55%, #7b37d4 100%);
+    box-shadow: 0 0 40px rgba(134, 223, 240, 0.35);
+    animation: pulse 3.5s ease-in-out infinite;
+}
+
+.pulse-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: 40%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 22px rgba(201, 90, 232, 0.45);
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* Neon Wave */
+.neon-wave {
+    width: 200px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.wave-line {
+    flex: 1;
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #7b37d4 0%, #c95ae8 100%);
+    box-shadow: 0 0 20px rgba(201, 90, 232, 0.45);
+    animation: wave 2s ease-in-out infinite;
+}
+
+.wave-line:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.wave-line:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes wave {
+    0%,
+    100% {
+        transform: scaleY(0.6);
+    }
+
+    50% {
+        transform: scaleY(1);
+    }
+}
+
+/* Laser Triangle */
+.laser-triangle {
+    width: 190px;
+    height: 190px;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: linear-gradient(180deg, rgba(134, 223, 240, 0.85) 0%, rgba(69, 130, 254, 0.45) 100%);
+    position: relative;
+    box-shadow: 0 0 35px rgba(134, 223, 240, 0.35);
+}
+
+.laser-line {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 55%;
+    height: 2px;
+    background: rgba(201, 90, 232, 0.8);
+    box-shadow: 0 0 12px rgba(201, 90, 232, 0.6);
+    animation: sweep 2.5s linear infinite;
+}
+
+@keyframes sweep {
+    0% {
+        transform: translateY(20px);
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-20px);
+        opacity: 0.3;
+    }
+}
+
+/* Info Area */
+.decade-info {
+    padding: 35px;
+    background: rgba(40, 52, 120, 0.7);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.decade-year {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.bigroom .decade-year {
+    background: linear-gradient(45deg, #86dff0, #3a6fd6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.futurebass .decade-year {
+    background: linear-gradient(45deg, #7b37d4, #c95ae8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.trance .decade-year {
+    background: linear-gradient(45deg, #3a6fd6, #86dff0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.decade-range {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.decade-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.decade-genre {
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+}
+
+.decade-genre:hover {
+    transform: scale(1.05);
+}
+
+.bigroom .decade-genre {
+    background: rgba(134, 223, 240, 0.2);
+    color: #86dff0;
+    border: 1px solid rgba(134, 223, 240, 0.5);
+}
+
+.futurebass .decade-genre {
+    background: rgba(201, 90, 232, 0.2);
+    color: #c95ae8;
+    border: 1px solid rgba(201, 90, 232, 0.55);
+}
+
+.trance .decade-genre {
+    background: rgba(58, 111, 214, 0.2);
+    color: #86dff0;
+    border: 1px solid rgba(58, 111, 214, 0.55);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .decades-grid {
+        gap: 30px;
+    }
+
+    .decade-visual {
+        min-height: 200px;
+        padding: 30px;
+    }
+
+    .pulse-orb {
+        width: 150px;
+        height: 150px;
+    }
+
+    .neon-wave {
+        width: 170px;
+        height: 130px;
+    }
+
+    .laser-triangle {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 968px) {
+    .eras-container {
+        padding: 20px;
+        overflow-y: auto;
+        justify-content: flex-start;
+        padding-top: 100px;
+        padding-bottom: 40px;
+    }
+
+    .decades-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        gap: 30px;
+    }
+
+    .decade-card {
+        aspect-ratio: auto;
+        min-height: 500px;
+    }
+
+    .eras-header {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .decade-info {
+        padding: 25px;
+    }
+
+    .decade-year {
+        font-size: 2.3rem;
+    }
+
+    .decade-genre {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (hover: none) {
+    .decade-card:hover {
+        transform: none;
+    }
+}
