@@ -37,9 +37,12 @@
             height: clamp(150px, 30vw, 220px);
             margin: 0 auto 24px;
             position: relative;
-            --slider-1: 19%;
-            --slider-2: 50%;
-            --slider-3: 81%;
+            --slider-1: 10%;
+            --slider-2: 41%;
+            --slider-3: 72%;
+            --slider-1-center: calc(var(--slider-1) + 9%);
+            --slider-2-center: calc(var(--slider-2) + 9%);
+            --slider-3-center: calc(var(--slider-3) + 9%);
         }
 
         .mixer-panel {
@@ -97,9 +100,9 @@
             transform: translateX(-50%);
         }
 
-        .knob-1 { left: var(--slider-1); bottom: 10%; }
-        .knob-2 { left: var(--slider-2); bottom: 10%; }
-        .knob-3 { left: var(--slider-3); bottom: 10%; }
+        .knob-1 { left: var(--slider-1-center); bottom: 10%; }
+        .knob-2 { left: var(--slider-2-center); bottom: 10%; }
+        .knob-3 { left: var(--slider-3-center); bottom: 10%; }
 
         @keyframes faderMove {
             0% {
