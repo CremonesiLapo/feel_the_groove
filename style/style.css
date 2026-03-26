@@ -344,8 +344,9 @@ nav {
 }
 
 .vinyl-record {
-    width: min(250px, 60%);
-    height: min(250px, 60%);
+    width: clamp(180px, 50vw, 260px);
+    aspect-ratio: 1;
+    height: auto;
     background: radial-gradient(circle at 30% 30%, #333 0%, #000 100%);
     border-radius: 50%;
     position: relative;
@@ -635,9 +636,13 @@ nav {
     }
 
     .features-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
         max-width: 500px;
         margin: 0 auto;
+    }
+
+    .features-grid .feature-card:nth-child(3) {
+        grid-column: 1 / -1;
     }
 
     .gallery-buttons {
@@ -905,27 +910,30 @@ nav {
 /* Responsive */
 @media (max-width: 968px) {
     .gallery-buttons {
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        gap: 20px;
+        justify-items: stretch;
     }
 
     .gallery-button {
-        flex: 0 0 calc(50% - 15px);
-        min-width: 150px;
-        max-width: 250px;
+        flex: initial;
+        min-width: 0;
+        max-width: none;
+        width: 100%;
     }
 }
 
 @media (max-width: 480px) {
     .gallery-buttons {
-        flex-direction: column;
-        align-items: center;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+        gap: 16px;
     }
 
     .gallery-button {
-        flex: 0 0 auto;
         width: 100%;
-        max-width: 300px;
-        aspect-ratio: 16/9;
+        max-width: none;
+        aspect-ratio: 3/4;
     }
 }
