@@ -11,12 +11,29 @@ body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     background: #431F04;
     color: #fff;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+html {
+    font-size: clamp(14px, 0.9vw + 0.7rem, 18px);
+}
+
+img,
+video,
+canvas,
+svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Container that holds all slides */
 .slider-container {
     height: 100vh;
-    width: 100vw;
+    min-height: 100svh;
+    height: 100dvh;
+    width: 100%;
     overflow: hidden;
     position: relative;
 }
@@ -31,7 +48,9 @@ body {
 
 .slide {
     height: 100vh;
-    width: 100vw;
+    min-height: 100svh;
+    height: 100dvh;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
