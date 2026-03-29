@@ -37,7 +37,8 @@ function goToSlide(index) {
 
 // Update slide position
 function updateSlidePosition() {
-    slidesWrapper.style.transform = `translateY(-${currentSlide * 100}vh)`;
+    const viewportHeight = window.innerHeight;
+    slidesWrapper.style.transform = `translateY(-${currentSlide * viewportHeight}px)`;
 }
 
 // Update indicators
